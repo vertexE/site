@@ -1,0 +1,294 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/global.css";
+import Footer from "../../components/Footer.astro";
+import Navigation from "../../components/Navigation.astro";
+import Link from "../../components/Link.astro";
+import Inline from "../../components/Inline.astro";
+import Ex1 from "../../components/blogs/code-as-html-in-neovim/Ex1.astro";
+import Ex2 from "../../components/blogs/code-as-html-in-neovim/Ex2.astro";
+import Ex3 from "../../components/blogs/code-as-html-in-neovim/Ex3.astro";
+import Ex4 from "../../components/blogs/code-as-html-in-neovim/Ex4.astro";
+import Ex5 from "../../components/blogs/code-as-html-in-neovim/Ex5.astro";
+import Ex6 from "../../components/blogs/code-as-html-in-neovim/Ex6.astro";
+import Ex7 from "../../components/blogs/code-as-html-in-neovim/Ex7.astro";
+import Ex8 from "../../components/blogs/code-as-html-in-neovim/Ex8.astro";
+---
+
+<Layout>
+  <Navigation />
+  <article class="font-plex text-article text-lg">
+    <div class="container max-w-6xl mx-auto px-4">
+      <div
+        class="font-plex font-bold text-center text-2xl md:text-3xl text-primary mb-8 pb-2 pt-8 border-b-2 border-b-border-dark border-dashed"
+      >
+        <h2>Transform Code Snippets to HTML in Neovim</h2>
+        <div class="text-gray-600 text-center text-sm py-1">
+          PUBLISHED 12-05-2025 / UPDATED 12-05-2025
+        </div>
+      </div>
+      <div class="md:mx-10">
+        <p>
+          I am not sure how people start blogs or if there's some general
+          pattern to follow, but I'm going to give up trying to be clever and
+          just dive straight in. Over Thanksgiving break I decided I wanted to
+          start a blog but wasn't sure where to start. I had started with
+          creating this site and added a projects section while styling
+          everything after a colorscheme I had created in Neovim -- <Link
+            href="https://github.com/vertexE/synth.nvim">synth.nvim</Link
+          >. But before I could start blogging, I wanted an easy utility to
+          transform code snippets from my Neovim editor into HTML I could paste
+          into an astro component.
+        </p>
+        <br />
+        <p>
+          If you want to skip reading through the how and go straight to the
+          source, see my <Link
+            href="https://github.com/vertexE/init.lua/blob/trunk/lua/treesitter/extract.lua"
+            >Neovim config here</Link
+          >.
+        </p>
+        <br />
+        <h3 class="font-plex text-xl text-light font-bold mb-1">Plan</h3>
+        <p>
+          Before I started coding, I found a couple Neovim apis I would need to
+          use.
+          <ul class="list-disc pl-6 py-2 space-y-2">
+            <li>
+              <Link
+                href="https://neovim.io/doc/user/lua.html#_lua-module:-vim.inspector"
+                >vim.inspect_pos</Link
+              > - how to fetch the highlight groups of a node using a row, col position
+              within a buffer
+            </li>
+            <li>
+              <Link
+                href="https://neovim.io/doc/user/treesitter.html#_vim.treesitter"
+                >vim.treesitter</Link
+              > - what would parse a code file and tell me where different nodes
+              (and thus highlights) start and stop
+            </li>
+          </ul>
+
+          For <Inline>vim.inspect_pos</Inline>, you can use this in practically
+          the same way as <Inline>:Inspect</Inline>. For example, if you created
+          a scratch buffer in nvim, added the following
+        </p>
+
+        <div class="py-4">
+          <Ex1 />
+        </div>
+
+        <p>Then run <Inline>:%lua</Inline> you'll get the following output</p>
+
+        <div class="py-4">
+          <Ex2 />
+        </div>
+
+        <p>
+          The above gives us a reliable method to extract the <Inline
+            >hl_group_link</Inline
+          >, which in turn allows us to use <Inline>vim.api.nvim_get_hl</Inline>
+          to get the fg/bg values. Something to keep in mind, the <Inline
+            >vim.api.nvim_get_hl</Inline
+          > function returns fg/bg as number values, not hex values, so we'll also
+          want to convert that to hex to make it easier to use in css.
+        </p>
+
+        <br />
+
+        <p>
+          For treesitter, that I relied more on online examples and Claude to
+          understand the right functions to call, but the actual idea is quite
+          simple.
+          <ol class="list-decimal pl-8 py-2 space-y-2">
+            <li>
+              <Link
+                href="https://neovim.io/doc/user/treesitter.html#vim.treesitter.get_parser()"
+                >vim.treesitter.get_parser</Link
+              > - obviously, it gets the parser for the buffer
+            </li>
+            <li>
+              <Link
+                href="https://neovim.io/doc/user/treesitter.html#treesitter-languagetree"
+                >vim.treesitter.LanguageTree:parse()</Link
+              > - before we can walk the tree, we parse the content in the buffer,
+              which returns a list of trees (I only ever saw 1 tree returned, so
+              I always used that).
+            </li>
+            <li>
+              <Link
+                href="https://neovim.io/doc/user/treesitter.html#TSTree%3Aroot()"
+                >TSTree:root()</Link
+              > - get the top node to start
+            </li>
+            <li>
+              <Link
+                href="https://neovim.io/doc/user/treesitter.html#TSNode%3Aiter_children()"
+                >TSNode:iter_children()</Link
+              > - using this func to recursively walk the tree, looking for leaf
+              nodes that are in the line range I want.
+            </li>
+            <li>
+              <Link
+                href="https://neovim.io/doc/user/treesitter.html#TSNode%3Arange()"
+                >TSNode:range()</Link
+              > - to get <Inline>start_row, start_col, end_row, end_col</Inline>
+              of the node
+            </li>
+
+            <li>
+              <Link
+                href="https://neovim.io/doc/user/treesitter.html#vim.treesitter.get_node_text()"
+                >vim.treesitter.get_node_text</Link
+              > - for the text inside the node
+            </li>
+          </ol>
+        </p>
+        <p>
+          With these treesitter functions + vim.inspect_pos, we can now build
+          out our utility module.
+        </p>
+        <br />
+        <h3 class="font-plex text-xl text-light font-bold mb-1">
+          M.highlights
+        </h3>
+        <p>
+          I'm breaking this problem down into 2 major functions.
+          <ul class="list-disc pl-6 py-2 space-y-2">
+            <li>
+              <Inline>M.highlights</Inline>, will handle everything we've
+              covered so far, assembling a list of items to represent different
+              treesitter nodes including the fg/bg highlights in hex.
+            </li>
+            <li>
+              <Inline>M.as_html</Inline> will convert what the above function returns
+              to html, ready to paste into any .html file.
+            </li>
+          </ul>
+          For <Inline>M.highlights</Inline>, I came up with the following
+          <div class="py-4">
+            <Ex3 />
+          </div>
+          The approach is straightforward. We parse the tree as discussed above and
+          then recursively walk the nodes. For grabbing the highlight groups, that
+          will be done inside walk
+          <div class="py-4">
+            <Ex4 />
+          </div>
+          An aside on extracting out text. I've noticed sometimes <Inline
+            >vim.treesitter.get_node_text</Inline
+          > does not work perfectly. I'm not sure why but when I called it on a
+          <Inline>(line_comment)</Inline> node for rust (see <Inline
+            >:InspectTree</Inline
+          >) and TreeSitter wouldn't extract the actual comment, only the marker
+          <Inline>//</Inline>. Because of the issue, I added a special
+          condition. I haven't noticed any other issues so far (using
+          JS/TS/Golang/Rust/Lua), but it's possible other edge cases exist not
+          covered.
+          <div class="py-4">
+            <Ex5 />
+          </div>
+          To support the above, I also added a small function to use the <Inline
+            >hl_group_link</Inline
+          > and fetch the hl_group fg/bg values. After that, it will convert the
+          numerical values to their hex representation for ease of use in the next
+          part.
+          <div class="py-4">
+            <Ex6 />
+          </div>
+        </p>
+        <p>
+          Now we have covered <Inline>M.highlights</Inline> we'll start looking at
+          how we can convert the code to html. See <Link
+            href="https://github.com/vertexE/init.lua/blob/trunk/lua/treesitter/extract.lua#L27"
+            >here</Link
+          > for the full source code of what we just went over.
+        </p>
+        <br />
+        <h3 class="font-plex text-xl text-light font-bold mb-1">M.as_html</h3>
+        <p>
+          Now that we have a list of treesitter nodes with their fg/bg values,
+          we need to transform this into html that we can then paste in an astro
+          file. To best do this, we'll want to
+          <ol class="list-decimal pl-8 py-2 space-y-2">
+            <li>
+              Create a <Inline>&lt;styles&gt;</Inline> section to list out color
+              classes
+            </li>
+            <li>Parse each node token, constructing lines of text</li>
+            <li>
+              Correctly add spacing to the start of lines and between treesitter
+              nodes
+            </li>
+            <li>Add a button to copy the code content to the clipboard</li>
+          </ol>
+
+          Both adding the fg/bg colors as font text color to the css classes and
+          parsing the list of nodes into lines is very simple, so I'll skip
+          showing that. The last item to add a button is also simple. We can add
+          a <Inline>&lt;script&gt;</Inline> tag to the bottom of the content and
+          then add a button in the corner. The third item, <strong
+            >adding spaces at start and between tokens is more interesting</strong
+          >
+        </p>
+        <br />
+        <p>
+          Solving the whitespace before the start of any text on each line was
+          easy. I checked if we had moved to a new line and then added
+          whitespace to match the <Inline>item.col</Inline> value.
+
+          <div class="py-4">
+            <Ex7 />
+          </div>
+
+          This snippet got me spaces at the start, but how should I add spaces
+          between? Eventually I realized I could use the <Inline
+            >item.end_col</Inline
+          > of the previous treesitter node and compare that to the <Inline
+            >item.col</Inline
+          >. If the nodes are right next to each other, then they will be equal
+          (<Inline>end_col</Inline> is exclusive index). I can also use the difference
+          of the fields to calculate how many spaces to insert between the nodes.
+
+          <div class="py-4">
+            <Ex8 />
+          </div>
+        </p>
+        <p>
+          And with that we've solved all of the core issues in creating <Inline
+            >M.as_html</Inline
+          >. I now have a (mostly) reliable way of converting code into html.
+        </p>
+        <br />
+        <h3 class="font-plex text-xl text-light font-bold mb-1">Conclusion</h3>
+        <p>
+          Overall the code works (<Link
+            href="https://github.com/vertexE/init.lua/blob/trunk/lua/treesitter/extract.lua"
+            >check it out here!</Link
+          >), though edge cases and small bugs still remain. First, Rust
+          comments were getting parsed weirdly. The <Inline
+            >vim.treesitter.get_node_text</Inline
+          > API would return no text other than <Inline>//</Inline>. This wasn't
+          too hard to resolve as I simply used
+          <Inline>vim.api.nvim_buf_get_lines</Inline> and the nodes position to manually
+          extract out the code comments. There are also limitations with the approach
+          I used. If another plugin is applying highlights inside a treesitter node,
+          then those will not be copied. Virtual text is also not supported as that
+          will not appear inside a parsed tree from treesitter. Finally, there's
+          a lot of cleanup I would like to do, such as converting all of token classes
+          to tailwind.
+        </p>
+
+        <br />
+        <p>
+          If you would like to use this yourself, I would suggest not directly
+          copying the code I wrote, but instead use the core logic I reviewed
+          above and write your own! The one I created still isn't perfect and
+          you might find a better approach in the end.
+        </p>
+      </div>
+    </div>
+  </article>
+</Layout>
+<Footer />

@@ -1,0 +1,400 @@
+<style>
+  .line {
+    font-size: 0;
+  }
+  .space {
+    font-size: 1rem;
+  }
+  .code-block {
+    background-color: #1e1e2f;
+  }
+  .shrink {
+    transform: scale(0.8);
+    transition: transform 0.2s;
+  }
+  .property {
+    font-size: 1rem;
+    color: #b4beff;
+  }
+  .Operator {
+    font-size: 1rem;
+    color: #89dcec;
+  }
+  .spell {
+    font-size: 1rem;
+  }
+  .Special {
+    font-size: 1rem;
+    color: #f5c2e8;
+  }
+  .Function {
+    font-size: 1rem;
+    color: #89b4fb;
+  }
+  .String {
+    font-size: 1rem;
+    color: #a6e3a2;
+  }
+  .constantbuiltin {
+    font-size: 1rem;
+    color: #fab388;
+  }
+  .Number {
+    font-size: 1rem;
+    color: #fab388;
+  }
+  .variable {
+    font-size: 1rem;
+    color: #cdd6f5;
+  }
+  .Conditional {
+    font-size: 1rem;
+    color: #cba6f8;
+  }
+  .keywordoperator {
+    font-size: 1rem;
+    color: #cba6f8;
+  }
+  .Keyword {
+    font-size: 1rem;
+    color: #cba6f8;
+  }
+  .variablemember {
+    font-size: 1rem;
+    color: #b4beff;
+  }
+  .Delimiter {
+    font-size: 1rem;
+    color: #9399b3;
+  }
+  .punctuationbracket {
+    font-size: 1rem;
+    color: #9399b3;
+  }
+</style><div class="relative mx-auto max-w-3xl w-full font-maple">
+  <button id="38876" class="absolute top-0 right-0 p-4 max-sm:p-2 max-sm:hidden"
+    ><div class="relative">
+      <div class="border-gray-500 border rounded p-2 absolute right-4.5"></div>
+      <div
+        class="border-gray-500 border rounded p-2 absolute right-3 top-1.5 bg-[#1e1e2f]"
+      >
+      </div>
+    </div>
+  </button><div class="code-block rounded p-4">
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space"></span>
+      <span class="Keyword text-base max-md:text-sm">local</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">text</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">vim</span>
+      <span class="Delimiter text-base max-md:text-sm">.</span>
+      <span class="variablemember text-base max-md:text-sm">treesitter</span>
+      <span class="Delimiter text-base max-md:text-sm">.</span>
+      <span class="Function text-base max-md:text-sm">get_node_text</span>
+      <span class="punctuationbracket text-base max-md:text-sm">(</span>
+      <span class="variable text-base max-md:text-sm">node</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">bufnr</span>
+      <span class="punctuationbracket text-base max-md:text-sm">)</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space"></span>
+      <span class="Conditional text-base max-md:text-sm">if</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">node</span>
+      <span class="Delimiter text-base max-md:text-sm">:</span>
+      <span class="Function text-base max-md:text-sm">type</span>
+      <span class="punctuationbracket text-base max-md:text-sm">(</span>
+      <span class="punctuationbracket text-base max-md:text-sm">)</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">==</span>
+      <span class="space">&nbsp;</span>
+      <span class="String text-base max-md:text-sm">&quot;</span>
+      <span class="String text-base max-md:text-sm">//</span>
+      <span class="String text-base max-md:text-sm">&quot;</span>
+      <span class="space">&nbsp;</span>
+      <span class="Conditional text-base max-md:text-sm">then</span>
+      <span class="space">&nbsp;</span>
+      <span class="spell text-base max-md:text-sm">--</span>
+      <span class="spell text-base max-md:text-sm"> fix Rust issue</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="Keyword text-base max-md:text-sm">local</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">line</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">lines</span>
+      <span class="punctuationbracket text-base max-md:text-sm">[</span>
+      <span class="variable text-base max-md:text-sm">start_row</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">+</span>
+      <span class="space">&nbsp;</span>
+      <span class="Number text-base max-md:text-sm">1</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">-</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">start_line</span>
+      <span class="punctuationbracket text-base max-md:text-sm">]</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">text</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">line</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space"></span>
+      <span class="Conditional text-base max-md:text-sm">end</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space"></span>
+      <span class="Keyword text-base max-md:text-sm">local</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">inspect</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">vim</span>
+      <span class="Delimiter text-base max-md:text-sm">.</span>
+      <span class="Function text-base max-md:text-sm">inspect_pos</span>
+      <span class="punctuationbracket text-base max-md:text-sm">(</span>
+      <span class="variable text-base max-md:text-sm">bufnr</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">start_row</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">start_col</span>
+      <span class="punctuationbracket text-base max-md:text-sm">)</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space"></span>
+      <span class="Keyword text-base max-md:text-sm">local</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">hl_group</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="constantbuiltin text-base max-md:text-sm">nil</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space"></span>
+      <span class="Conditional text-base max-md:text-sm">if</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">inspect</span>
+      <span class="Delimiter text-base max-md:text-sm">.</span>
+      <span class="variablemember text-base max-md:text-sm">treesitter</span>
+      <span class="space">&nbsp;</span>
+      <span class="keywordoperator text-base max-md:text-sm">and</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">#</span>
+      <span class="variable text-base max-md:text-sm">inspect</span>
+      <span class="Delimiter text-base max-md:text-sm">.</span>
+      <span class="variablemember text-base max-md:text-sm">treesitter</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">&gt;</span>
+      <span class="space">&nbsp;</span>
+      <span class="Number text-base max-md:text-sm">0</span>
+      <span class="space">&nbsp;</span>
+      <span class="Conditional text-base max-md:text-sm">then</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">hl_group</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">inspect</span>
+      <span class="Delimiter text-base max-md:text-sm">.</span>
+      <span class="variablemember text-base max-md:text-sm">treesitter</span>
+      <span class="punctuationbracket text-base max-md:text-sm">[</span>
+      <span class="Operator text-base max-md:text-sm">#</span>
+      <span class="variable text-base max-md:text-sm">inspect</span>
+      <span class="Delimiter text-base max-md:text-sm">.</span>
+      <span class="variablemember text-base max-md:text-sm">treesitter</span>
+      <span class="punctuationbracket text-base max-md:text-sm">]</span>
+      <span class="Delimiter text-base max-md:text-sm">.</span>
+      <span class="variablemember text-base max-md:text-sm">hl_group_link</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space"></span>
+      <span class="Conditional text-base max-md:text-sm">end</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space"></span>
+      <span class="Conditional text-base max-md:text-sm">if</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">hl_group</span>
+      <span class="space">&nbsp;</span>
+      <span class="Conditional text-base max-md:text-sm">then</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="Keyword text-base max-md:text-sm">local</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">fg</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">bg</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="Function text-base max-md:text-sm">get_hl_colors</span>
+      <span class="punctuationbracket text-base max-md:text-sm">(</span>
+      <span class="variable text-base max-md:text-sm">hl_group</span>
+      <span class="punctuationbracket text-base max-md:text-sm">)</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="Special text-base max-md:text-sm">table</span>
+      <span class="Delimiter text-base max-md:text-sm">.</span>
+      <span class="Function text-base max-md:text-sm">insert</span>
+      <span class="punctuationbracket text-base max-md:text-sm">(</span>
+      <span class="variable text-base max-md:text-sm">results</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+      <span class="space">&nbsp;</span>
+      <span class="punctuationbracket text-base max-md:text-sm">&#123;</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+      >
+      <span class="property text-base max-md:text-sm">text</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">text</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+      >
+      <span class="property text-base max-md:text-sm">hl_group</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">hl_group</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+      >
+      <span class="property text-base max-md:text-sm">fg</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">fg</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+      >
+      <span class="property text-base max-md:text-sm">bg</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">bg</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+      >
+      <span class="property text-base max-md:text-sm">row</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">start_row</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+      >
+      <span class="property text-base max-md:text-sm">col</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">start_col</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+      >
+      <span class="property text-base max-md:text-sm">end_row</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">end_row</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+      >
+      <span class="property text-base max-md:text-sm">end_col</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">end_col</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="punctuationbracket text-base max-md:text-sm">&#125;</span>
+      <span class="punctuationbracket text-base max-md:text-sm">)</span>
+    </div>
+    <div class="line">
+      <span class="space"></span>
+      <span class="Conditional text-base max-md:text-sm">end</span>
+    </div>
+  </div>
+</div><script>
+  const btn = document.getElementById("38876");
+  btn?.addEventListener("click", () => {
+    btn.classList.add("shrink");
+    btn.innerHTML =
+      '<span class="p-2 bg-[#11111c] rounded text-muted">COPIED!</span>';
+    navigator.clipboard
+      .writeText(`local text = vim.treesitter.get_node_text(node, bufnr)
+if node:type() == "//" then -- fix Rust issue
+    local line = lines[start_row + 1 - start_line]
+    text = line
+end
+local inspect = vim.inspect_pos(bufnr, start_row, start_col)
+
+local hl_group = nil
+if inspect.treesitter and #inspect.treesitter > 0 then
+    hl_group = inspect.treesitter[#inspect.treesitter].hl_group_link
+end
+
+if hl_group then
+    local fg, bg = get_hl_colors(hl_group)
+    table.insert(results, {
+        text = text,
+        hl_group = hl_group,
+        fg = fg,
+        bg = bg,
+        row = start_row,
+        col = start_col,
+        end_row = end_row,
+        end_col = end_col,
+    })
+end
+`);
+    setTimeout(() => {
+      btn.classList.remove("shrink");
+      btn.innerHTML = `
+    <div class="relative">
+      <div class="border-gray-500 border rounded p-2 absolute right-4.5"></div>
+      <div class="border-gray-500 border rounded p-2 absolute right-3 top-1.5 bg-[#1e1e2f]"></div>
+    </div>
+        `;
+    }, 800);
+  });
+</script>

@@ -1,70 +1,21 @@
-<nav class="top-0 z-50 bg-dark shadow-[0_1px_8px_rgba(20,20,20,0.07)] w-full">
-  <div
-    class="flex justify-center items-center gap-12 h-16 mx-auto max-md:gap-4 max-md:h-14"
-  >
+<nav>
+  <div class="flex justify-between items-center w-full p-4 max-w-6xl mx-auto">
     <a
+      class="text-primary font-modern align-middle text-2xl"
       href="/site"
-      aria-label="navigate to portfolio"
-      id="nav-portfolio"
-      class="font-plex text-lg px-9 py-2.5 rounded-full bg-transparent text-primary transition-all duration-200 no-underline font-bold tracking-wide hover:bg-card-bg hover:text-primary focus:bg-card-bg focus:text-primary max-md:px-3.5 max-md:py-2"
+      aria-label="navigate to home"
+      id="nav-home"
     >
-      Portfolio
+      <span class="hidden sm:inline">VERT.EXE</span>
+      <span class="inline sm:hidden">VX</span>
     </a>
     <a
+      class="text-primary font-modern align-middle text-2xl"
       href="/site/blog"
       aria-label="navigate to blog"
-      id="nav-blog"
-      class="font-plex text-lg px-9 py-2.5 rounded-full bg-transparent text-primary transition-all duration-200 no-underline font-bold tracking-wide hover:bg-card-bg hover:text-primary focus:bg-card-bg focus:text-primary max-md:px-3.5 max-md:py-2"
+      id="nav-home"
     >
-      Blog
+      bloG
     </a>
   </div>
 </nav>
-
-<script>
-  window.onload = function () {
-    function updateActive() {
-      const navLinks = [
-        document.getElementById("nav-portfolio"),
-        document.getElementById("nav-blog"),
-      ].filter((el) => el !== null);
-
-      navLinks.forEach((el) => {
-        el.classList.remove(
-          "bg-primary",
-          "text-dark",
-          "shadow-[0_4px_32px_rgba(127,216,113,0.15)]",
-        );
-        el.classList.add("bg-transparent", "text-primary");
-      });
-
-      // Special case: If "blog" is in the route, highlight Blog
-      if (window.location.pathname.toLowerCase().includes("blog")) {
-        const blogLink = document.getElementById("nav-blog");
-        if (blogLink) {
-          blogLink.classList.remove("bg-transparent", "text-primary");
-          blogLink.classList.add(
-            "bg-primary",
-            "text-dark",
-            "shadow-[0_4px_32px_rgba(127,216,113,0.15)]",
-          );
-        }
-      } else {
-        // default case is portfolio (root)
-        const portfolioLink = document.getElementById("nav-portfolio");
-        if (portfolioLink) {
-          portfolioLink.classList.remove("bg-transparent", "text-primary");
-          portfolioLink.classList.add(
-            "bg-primary",
-            "text-dark",
-            "shadow-[0_4px_32px_rgba(127,216,113,0.15)]",
-          );
-        }
-      }
-    }
-
-    window.addEventListener("hashchange", updateActive);
-    window.addEventListener("popstate", updateActive);
-    updateActive();
-  };
-</script>

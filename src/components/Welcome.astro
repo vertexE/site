@@ -18,40 +18,37 @@ import NvimIcon from "../assets/nvim.svg";
       </p>
       <div class="flex gap-4 mt-2">
         <a
-          class="text-primary font-plex"
-          aria-label="jump to experience section"
-          href="#experience"
+          href="/site/projects"
+          aria-label="navigate to projects"
+          id="nav-portfolio"
+          class="font-plex text-lg px-9 py-2.5 rounded bg-transparent text-primary no-underline font-bold border border-primary hover:border-alert hover:text-alert max-md:px-3.5 max-md:py-2"
         >
-          Experience
+          <span class="hidden sm:inline">View my Projects</span>
+          <span class="inline sm:hidden">Projects</span>
         </a>
-        <a
-          class="text-primary font-plex"
-          aria-label="jump to projects section"
-          href="#projects"
-        >
-          Projects
-        </a>
-        <a
-          href="https://www.github.com/vertexE"
-          aria-label="open github profile"
-          rel="noopener noreferrer"
-        >
-          <GithubIcon class="w-6 h-6" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/josiah-denton-3a04a4168/"
-          aria-label="open linkedin page"
-          rel="noopener noreferrer"
-        >
-          <LinkedInIcon class="w-6 h-6" />
-        </a>
-        <a
-          href="https://www.github.com/vertexE/init.lua"
-          aria-label="open dotfiles in github"
-          rel="noopener noreferrer"
-        >
-          <NvimIcon class="w-6 h-6" />
-        </a>
+        <div class="flex items-center gap-2">
+          <a
+            href="https://www.github.com/vertexE"
+            aria-label="open github profile"
+            rel="noopener noreferrer"
+          >
+            <GithubIcon class="w-6 h-6" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/josiah-denton-3a04a4168/"
+            aria-label="open linkedin page"
+            rel="noopener noreferrer"
+          >
+            <LinkedInIcon class="w-6 h-6" />
+          </a>
+          <a
+            href="https://www.github.com/vertexE/init.lua"
+            aria-label="open dotfiles in github"
+            rel="noopener noreferrer"
+          >
+            <NvimIcon class="w-6 h-6" />
+          </a>
+        </div>
       </div>
     </div>
   </div>

@@ -1,0 +1,88 @@
+---
+import Navigation from "../../components/Navigation.astro";
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/global.css";
+import Footer from "../../components/Footer.astro";
+
+const blogs = [
+  // {
+  //   title: "Fuzzy Find Algorithms",
+  //   description:
+  //     "This article takes a look at how we can improve searching beyond simple SQL statements.",
+  //   href: "/site/blog/fuzzy-find-algorithms",
+  //   datePublished: "2025-11-30",
+  // },
+  {
+    title: "Code as HTML in Neovim",
+    description:
+      "This article takes a look at how we can improve searching beyond simple SQL statements.",
+    href: "/site/blog/code-as-html-in-neovim",
+    datePublished: "2025-11-30",
+  },
+];
+---
+
+<Layout>
+  <Navigation />
+  <main>
+    <div class="min-h-screen flex p-4">
+      <div class="container max-w-6xl w-fit mx-auto">
+        <div class="mb-8">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search posts..."
+            class="w-full px-4 py-2 border border-border-dark placeholder-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+          />
+        </div>
+        <div id="blog-posts" class="flex flex-col items-center px-4">
+          {
+            blogs.map((post) => (
+              <article
+                class="blog-post mb-12"
+                data-title={post.title.toLowerCase()}
+                data-description={post.description.toLowerCase()}
+              >
+                <h2 class="font-plex text-2xl md:text-4xl text-primary">
+                  <a href={post.href}>{post.title}</a>
+                </h2>
+                <time class="block mt-2 text-sm text-gray-500">
+                  {post.datePublished}
+                </time>
+                <p class="mt-2 text-gray-600">{post.description}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+
+  <script>
+    const searchInput = document.getElementById(
+      "search-input",
+    ) as HTMLInputElement;
+    const blogPosts = document.querySelectorAll(
+      ".blog-post",
+    ) as NodeListOf<HTMLElement>;
+
+    searchInput?.addEventListener("input", (e) => {
+      const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+
+      blogPosts.forEach((post) => {
+        const title = post.dataset.title || "";
+        const description = post.dataset.description || "";
+
+        const matches =
+          title.includes(searchTerm) || description.includes(searchTerm);
+
+        if (matches) {
+          post.style.display = "block";
+        } else {
+          post.style.display = "none";
+        }
+      });
+    });
+  </script>
+</Layout>

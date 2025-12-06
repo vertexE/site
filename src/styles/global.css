@@ -21,16 +21,50 @@
   font-style: bold;
 }
 
+
+@font-face {
+  font-family: 'Maple Mono NF';
+  src: url('/site/fonts/MapleMono-NF-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Maple Mono NF';
+  src: url('/site/fonts/MapleMono-NF-Medium.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Maple Mono NF';
+  src: url('/site/fonts/MapleMono-NF-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: 'Major Mono Display';
+  src: url('/site/fonts/MajorMonoDisplay-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @theme {
   --color-dark: #0e1219;
   --color-primary: #13eb95;
   --color-alert: #ff5171;
+  --color-link: #55b4ff;
   --color-light: #e0e0e0;
   --color-muted: #8892b0;
+  --color-article: #9399b3;
   --color-card-bg: #1a1f29;
   --color-border-dark: #2a3346;
-  
+
+  --font-modern: "Major Mono Display", monospace;
+  --font-maple: "Maple Mono NF", monospace;
   --font-plex: "IBM Plex Mono", monospace;
+  --font-robot: "Roboto", sans-serif;
 
   --animate-blink: blink 1s step-end infinite;
 

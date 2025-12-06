@@ -1,0 +1,15 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Lines connecting the nodes -->
+  <line x1="115" y1="120" x2="165" y2="145" stroke="#13eb95" stroke-width="6"/>
+  <line x1="115" y1="180" x2="165" y2="155" stroke="#13eb95" stroke-width="6"/>
+  
+  <!-- Nodes (outlined circles) -->
+  <!-- Left top node -->
+  <circle cx="100" cy="120" r="15" stroke="#13eb95" stroke-width="6"/>
+  
+  <!-- Left bottom node -->
+  <circle cx="100" cy="180" r="15" stroke="#13eb95" stroke-width="6"/>
+  
+  <!-- Right node -->
+  <circle cx="180" cy="150" r="15" stroke="#13eb95" stroke-width="6"/>
+</svg>

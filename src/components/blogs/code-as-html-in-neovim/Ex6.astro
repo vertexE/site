@@ -1,0 +1,257 @@
+<style>
+  .line {
+    font-size: 0;
+  }
+  .space {
+    font-size: 1rem;
+  }
+  .code-block {
+    background-color: #1e1e2f;
+  }
+  .shrink {
+    transform: scale(0.8);
+    transition: transform 0.2s;
+  }
+  .Operator {
+    font-size: 1rem;
+    color: #89dcec;
+  }
+  .keywordfunction {
+    font-size: 1rem;
+    color: #cba6f8;
+  }
+  .variableparameter {
+    font-size: 1rem;
+    color: #eba0ad;
+  }
+  .Comment {
+    font-size: 1rem;
+    color: #9399b3;
+  }
+  .constantbuiltin {
+    font-size: 1rem;
+    color: #fab388;
+  }
+  .keywordoperator {
+    font-size: 1rem;
+    color: #cba6f8;
+  }
+  .punctuationbracket {
+    font-size: 1rem;
+    color: #9399b3;
+  }
+  .property {
+    font-size: 1rem;
+    color: #b4beff;
+  }
+  .String {
+    font-size: 1rem;
+    color: #a6e3a2;
+  }
+  .keywordreturn {
+    font-size: 1rem;
+    color: #cba6f8;
+  }
+  .variable {
+    font-size: 1rem;
+    color: #cdd6f5;
+  }
+  .Number {
+    font-size: 1rem;
+    color: #fab388;
+  }
+  .Delimiter {
+    font-size: 1rem;
+    color: #9399b3;
+  }
+  .variablemember {
+    font-size: 1rem;
+    color: #b4beff;
+  }
+  .Keyword {
+    font-size: 1rem;
+    color: #cba6f8;
+  }
+  .Special {
+    font-size: 1rem;
+    color: #f5c2e8;
+  }
+  .Function {
+    font-size: 1rem;
+    color: #89b4fb;
+  }
+</style><div class="relative mx-auto max-w-3xl w-full font-maple">
+  <button id="40281" class="absolute top-0 right-0 p-4 max-sm:p-2 max-sm:hidden"
+    ><div class="relative">
+      <div class="border-gray-500 border rounded p-2 absolute right-4.5"></div>
+      <div
+        class="border-gray-500 border rounded p-2 absolute right-3 top-1.5 bg-[#1e1e2f]"
+      >
+      </div>
+    </div>
+  </button><div class="code-block rounded p-4">
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space"></span>
+      <span class="Comment text-base max-md:text-sm">--</span>
+      <span class="Comment text-base max-md:text-sm"
+        >- Get hex color from highlight group</span
+      >
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space"></span>
+      <span class="Comment text-base max-md:text-sm">--</span>
+      <span class="Comment text-base max-md:text-sm"
+        >- @param hl_group string</span
+      >
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space"></span>
+      <span class="Comment text-base max-md:text-sm">--</span>
+      <span class="Comment text-base max-md:text-sm"
+        >- @return string|nil, string|nil</span
+      >
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space"></span>
+      <span class="Keyword text-base max-md:text-sm">local</span>
+      <span class="space">&nbsp;</span>
+      <span class="keywordfunction text-base max-md:text-sm">function</span>
+      <span class="space">&nbsp;</span>
+      <span class="Function text-base max-md:text-sm">get_hl_colors</span>
+      <span class="punctuationbracket text-base max-md:text-sm">(</span>
+      <span class="variableparameter text-base max-md:text-sm">hl_group</span>
+      <span class="punctuationbracket text-base max-md:text-sm">)</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="Keyword text-base max-md:text-sm">local</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">hl</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">vim</span>
+      <span class="Delimiter text-base max-md:text-sm">.</span>
+      <span class="variablemember text-base max-md:text-sm">api</span>
+      <span class="Delimiter text-base max-md:text-sm">.</span>
+      <span class="Function text-base max-md:text-sm">nvim_get_hl</span>
+      <span class="punctuationbracket text-base max-md:text-sm">(</span>
+      <span class="Number text-base max-md:text-sm">0</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+      <span class="space">&nbsp;</span>
+      <span class="punctuationbracket text-base max-md:text-sm">&#123;</span>
+      <span class="space">&nbsp;</span>
+      <span class="property text-base max-md:text-sm">name</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">hl_group</span>
+      <span class="space">&nbsp;</span>
+      <span class="punctuationbracket text-base max-md:text-sm">&#125;</span>
+      <span class="punctuationbracket text-base max-md:text-sm">)</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="Keyword text-base max-md:text-sm">local</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">fg</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">hl</span>
+      <span class="Delimiter text-base max-md:text-sm">.</span>
+      <span class="variablemember text-base max-md:text-sm">fg</span>
+      <span class="space">&nbsp;</span>
+      <span class="keywordoperator text-base max-md:text-sm">and</span>
+      <span class="space">&nbsp;</span>
+      <span class="Special text-base max-md:text-sm">string</span>
+      <span class="Delimiter text-base max-md:text-sm">.</span>
+      <span class="Function text-base max-md:text-sm">format</span>
+      <span class="punctuationbracket text-base max-md:text-sm">(</span>
+      <span class="String text-base max-md:text-sm">&quot;</span>
+      <span class="String text-base max-md:text-sm">#%06x</span>
+      <span class="String text-base max-md:text-sm">&quot;</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">hl</span>
+      <span class="Delimiter text-base max-md:text-sm">.</span>
+      <span class="variablemember text-base max-md:text-sm">fg</span>
+      <span class="punctuationbracket text-base max-md:text-sm">)</span>
+      <span class="space">&nbsp;</span>
+      <span class="keywordoperator text-base max-md:text-sm">or</span>
+      <span class="space">&nbsp;</span>
+      <span class="constantbuiltin text-base max-md:text-sm">nil</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="Keyword text-base max-md:text-sm">local</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">bg</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">hl</span>
+      <span class="Delimiter text-base max-md:text-sm">.</span>
+      <span class="variablemember text-base max-md:text-sm">bg</span>
+      <span class="space">&nbsp;</span>
+      <span class="keywordoperator text-base max-md:text-sm">and</span>
+      <span class="space">&nbsp;</span>
+      <span class="Special text-base max-md:text-sm">string</span>
+      <span class="Delimiter text-base max-md:text-sm">.</span>
+      <span class="Function text-base max-md:text-sm">format</span>
+      <span class="punctuationbracket text-base max-md:text-sm">(</span>
+      <span class="String text-base max-md:text-sm">&quot;</span>
+      <span class="String text-base max-md:text-sm">#%06x</span>
+      <span class="String text-base max-md:text-sm">&quot;</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">hl</span>
+      <span class="Delimiter text-base max-md:text-sm">.</span>
+      <span class="variablemember text-base max-md:text-sm">bg</span>
+      <span class="punctuationbracket text-base max-md:text-sm">)</span>
+      <span class="space">&nbsp;</span>
+      <span class="keywordoperator text-base max-md:text-sm">or</span>
+      <span class="space">&nbsp;</span>
+      <span class="constantbuiltin text-base max-md:text-sm">nil</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="keywordreturn text-base max-md:text-sm">return</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">fg</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">bg</span>
+    </div>
+    <div class="line">
+      <span class="space"></span>
+      <span class="keywordfunction text-base max-md:text-sm">end</span>
+    </div>
+  </div>
+</div><script>
+  const btn = document.getElementById("40281");
+  btn?.addEventListener("click", () => {
+    btn.classList.add("shrink");
+    btn.innerHTML =
+      '<span class="p-2 bg-[#11111c] rounded text-muted">COPIED!</span>';
+    navigator.clipboard.writeText(`--- Get hex color from highlight group
+--- @param hl_group string
+--- @return string|nil, string|nil
+local function get_hl_colors(hl_group)
+    local hl = vim.api.nvim_get_hl(0, { name = hl_group })
+    local fg = hl.fg and string.format("#%06x", hl.fg) or nil
+    local bg = hl.bg and string.format("#%06x", hl.bg) or nil
+    return fg, bg
+end
+`);
+    setTimeout(() => {
+      btn.classList.remove("shrink");
+      btn.innerHTML = `
+    <div class="relative">
+      <div class="border-gray-500 border rounded p-2 absolute right-4.5"></div>
+      <div class="border-gray-500 border rounded p-2 absolute right-3 top-1.5 bg-[#1e1e2f]"></div>
+    </div>
+        `;
+    }, 800);
+  });
+</script>

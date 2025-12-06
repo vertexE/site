@@ -1,0 +1,243 @@
+<style>
+  .line {
+    font-size: 0;
+  }
+  .space {
+    font-size: 1rem;
+  }
+  .code-block {
+    background-color: #1e1e2f;
+  }
+  .shrink {
+    transform: scale(0.8);
+    transition: transform 0.2s;
+  }
+  .Operator {
+    font-size: 1rem;
+    color: #89dcec;
+  }
+  .Repeat {
+    font-size: 1rem;
+    color: #cba6f8;
+  }
+  .spell {
+    font-size: 1rem;
+  }
+  .keywordoperator {
+    font-size: 1rem;
+    color: #cba6f8;
+  }
+  .keywordfunction {
+    font-size: 1rem;
+    color: #cba6f8;
+  }
+  .Comment {
+    font-size: 1rem;
+    color: #9399b3;
+  }
+  .Delimiter {
+    font-size: 1rem;
+    color: #9399b3;
+  }
+  .variableparameter {
+    font-size: 1rem;
+    color: #eba0ad;
+  }
+  .punctuationbracket {
+    font-size: 1rem;
+    color: #9399b3;
+  }
+  .Keyword {
+    font-size: 1rem;
+    color: #cba6f8;
+  }
+  .Function {
+    font-size: 1rem;
+    color: #89b4fb;
+  }
+  .variable {
+    font-size: 1rem;
+    color: #cdd6f5;
+  }
+  .Conditional {
+    font-size: 1rem;
+    color: #cba6f8;
+  }
+</style><div class="relative mx-auto max-w-3xl w-full font-maple">
+  <button id="48464" class="absolute top-0 right-0 p-4 max-sm:p-2 max-sm:hidden"
+    ><div class="relative">
+      <div class="border-gray-500 border rounded p-2 absolute right-4.5"></div>
+      <div
+        class="border-gray-500 border rounded p-2 absolute right-3 top-1.5 bg-[#1e1e2f]"
+      >
+      </div>
+    </div>
+  </button><div class="code-block rounded p-4">
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space"></span>
+      <span class="Keyword text-base max-md:text-sm">local</span>
+      <span class="space">&nbsp;</span>
+      <span class="keywordfunction text-base max-md:text-sm">function</span>
+      <span class="space">&nbsp;</span>
+      <span class="Function text-base max-md:text-sm">walk</span>
+      <span class="punctuationbracket text-base max-md:text-sm">(</span>
+      <span class="variableparameter text-base max-md:text-sm">node</span>
+      <span class="punctuationbracket text-base max-md:text-sm">)</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="Conditional text-base max-md:text-sm">if</span>
+      <span class="space">&nbsp;</span>
+      <span class="Function text-base max-md:text-sm">is_leaf</span>
+      <span class="punctuationbracket text-base max-md:text-sm">(</span>
+      <span class="variable text-base max-md:text-sm">node</span>
+      <span class="punctuationbracket text-base max-md:text-sm">)</span>
+      <span class="space">&nbsp;</span>
+      <span class="Conditional text-base max-md:text-sm">then</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+      >
+      <span class="Keyword text-base max-md:text-sm">local</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">start_row</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">start_col</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">end_row</span>
+      <span class="Delimiter text-base max-md:text-sm">,</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">end_col</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">node</span>
+      <span class="Delimiter text-base max-md:text-sm">:</span>
+      <span class="Function text-base max-md:text-sm">range</span>
+      <span class="punctuationbracket text-base max-md:text-sm">(</span>
+      <span class="punctuationbracket text-base max-md:text-sm">)</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+      >
+      <span class="Conditional text-base max-md:text-sm">if</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">start_row</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">&gt;=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">start_line</span>
+      <span class="space">&nbsp;</span>
+      <span class="keywordoperator text-base max-md:text-sm">and</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">start_row</span>
+      <span class="space">&nbsp;</span>
+      <span class="Operator text-base max-md:text-sm">&lt;=</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">end_line</span>
+      <span class="space">&nbsp;</span>
+      <span class="Conditional text-base max-md:text-sm">then</span>
+      <span class="space">&nbsp;</span>
+      <span class="spell text-base max-md:text-sm">--</span>
+      <span class="spell text-base max-md:text-sm"> is it in the range</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space"
+        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+      >
+      <span class="Comment text-base max-md:text-sm">--</span>
+      <span class="Comment text-base max-md:text-sm">- get node text</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space"
+        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+      >
+      <span class="Comment text-base max-md:text-sm">--</span>
+      <span class="Comment text-base max-md:text-sm"
+        >- use vim.inspect_pos for highlights fg/bg</span
+      >
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space"
+        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+      >
+      <span class="Comment text-base max-md:text-sm">--</span>
+      <span class="Comment text-base max-md:text-sm">- insert into results</span
+      >
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+      >
+      <span class="Conditional text-base max-md:text-sm">end</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="Conditional text-base max-md:text-sm">end</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="Repeat text-base max-md:text-sm">for</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">child</span>
+      <span class="space">&nbsp;</span>
+      <span class="Keyword text-base max-md:text-sm">in</span>
+      <span class="space">&nbsp;</span>
+      <span class="variable text-base max-md:text-sm">node</span>
+      <span class="Delimiter text-base max-md:text-sm">:</span>
+      <span class="Function text-base max-md:text-sm">iter_children</span>
+      <span class="punctuationbracket text-base max-md:text-sm">(</span>
+      <span class="punctuationbracket text-base max-md:text-sm">)</span>
+      <span class="space">&nbsp;</span>
+      <span class="Repeat text-base max-md:text-sm">do</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+      >
+      <span class="Function text-base max-md:text-sm">walk</span>
+      <span class="punctuationbracket text-base max-md:text-sm">(</span>
+      <span class="variable text-base max-md:text-sm">child</span>
+      <span class="punctuationbracket text-base max-md:text-sm">)</span>
+    </div>
+    <div class="line wrap-break-word whitespace-pre-wrap">
+      <span class="space">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="Repeat text-base max-md:text-sm">end</span>
+    </div>
+    <div class="line">
+      <span class="space"></span>
+      <span class="keywordfunction text-base max-md:text-sm">end</span>
+    </div>
+  </div>
+</div><script>
+  const btn = document.getElementById("48464");
+  btn?.addEventListener("click", () => {
+    btn.classList.add("shrink");
+    btn.innerHTML =
+      '<span class="p-2 bg-[#11111c] rounded text-muted">COPIED!</span>';
+    navigator.clipboard.writeText(`local function walk(node)
+    if is_leaf(node) then
+        local start_row, start_col, end_row, end_col = node:range()
+
+        if start_row >= start_line and start_row <= end_line then -- is it in the range
+            --- get node text
+            --- use vim.inspect_pos for highlights fg/bg
+            --- insert into results
+        end
+    end
+
+    for child in node:iter_children() do
+        walk(child)
+    end
+end`);
+    setTimeout(() => {
+      btn.classList.remove("shrink");
+      btn.innerHTML = `
+    <div class="relative">
+      <div class="border-gray-500 border rounded p-2 absolute right-4.5"></div>
+      <div class="border-gray-500 border rounded p-2 absolute right-3 top-1.5 bg-[#1e1e2f]"></div>
+    </div>
+        `;
+    }, 800);
+  });
+</script>
